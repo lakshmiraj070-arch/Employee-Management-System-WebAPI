@@ -1,92 +1,187 @@
-# EmployeeAPI
+# Employee Management System MVC
 
 ## Overview
 
-EmployeeAPI is a RESTful ASP.NET Core Web API developed for an Employee Management System. It provides CRUD (Create, Read, Update, Delete) operations for managing employee records and uses Entity Framework Core with SQL Server for data storage.
+Employee Management System MVC is an ASP.NET Core MVC application developed to manage employee records efficiently. The application follows the MVC (Model-View-Controller) architecture and performs CRUD operations using Entity Framework Core with SQL Server.
 
-This API is designed to be consumed by a React.js frontend, enabling a complete Full Stack Employee Management System.
-
----
+This project demonstrates the implementation of MVC concepts, database connectivity, form validation, and Razor Views.
 
 ## Features
 
-- Add a new employee
-- View all employees
-- View employee by ID
-- Update employee details
-- Delete employee
-- RESTful API architecture
-- Entity Framework Core integration
-- SQL Server database connectivity
-
----
+* View all employee records
+* Add new employee details
+* Edit existing employee information
+* Delete employee records
+* Form validation using Data Annotations
+* Entity Framework Core database integration
+* SQL Server database connectivity
+* Responsive user interface using HTML and CSS
 
 ## Technologies Used
 
-- ASP.NET Core Web API
-- C#
-- Entity Framework Core
-- SQL Server
-- REST API
-- Visual Studio 2022
+### Backend
 
----
+* ASP.NET Core MVC
+* C#
+* Entity Framework Core
+
+### Database
+
+* Microsoft SQL Server
+
+### Frontend
+
+* Razor Views (.cshtml)
+* HTML5
+* CSS3
+* Bootstrap
+
+### Development Tools
+
+* Visual Studio 2022
+* SQL Server / SQL Server Management Studio
+
+## Application Architecture
+
+The project follows the MVC architecture:
+
+```
+User
+ |
+ v
+View (Razor Pages)
+ |
+ v
+Controller
+ |
+ v
+Model
+ |
+ v
+Entity Framework Core
+ |
+ v
+SQL Server Database
+```
 
 ## Project Structure
 
 ```
-EmployeeAPI
+EmployeeManagementSystemMVC
+
 │
 ├── Controllers
+│   ├── HomeController.cs
+│   └── EmployeesController.cs
+│
 ├── Models
-├── Data
-├── Migrations
-├── Properties
-├── Program.cs
+│   ├── Employee.cs
+│   ├── EmployeeManagementDBContext.cs
+│   └── ErrorViewModel.cs
+│
+├── Views
+│   ├── Home
+│   ├── Employees
+│   │   ├── Index.cshtml
+│   │   ├── Create.cshtml
+│   │   ├── Edit.cshtml
+│   │   ├── Details.cshtml
+│   │   └── Delete.cshtml
+│   │
+│   └── Shared
+│
+├── wwwroot
+│   └── css
+│
 ├── appsettings.json
-└── EmployeeAPI.csproj
+└── Program.cs
 ```
 
----
+## Database Details
 
-## API Endpoints
+Database Name:
 
-| Method | Endpoint | Description |
-|---------|----------|-------------|
-| GET | /api/Employee | Get all employees |
-| GET | /api/Employee/{id} | Get employee by ID |
-| POST | /api/Employee | Add a new employee |
-| PUT | /api/Employee/{id} | Update employee |
-| DELETE | /api/Employee/{id} | Delete employee |
+```
+EmployeeManagementDB
+```
 
----
+Table Name:
 
-## Database
+```
+Employee
+```
 
-The project uses SQL Server with Entity Framework Core.
+Employee Table Columns:
 
-Example Employee model:
+| Column      | Data Type |
+| ----------- | --------- |
+| Id          | int       |
+| Name        | varchar   |
+| Designation | varchar   |
+| Salary      | decimal   |
 
-- Id
-- Name
-- Designation
-- Salary
+## CRUD Operations
 
----
+### Create
+
+Allows users to add new employee records through a form with validation.
+
+### Read
+
+Displays all employee records from SQL Server.
+
+### Update
+
+Allows users to edit and update existing employee information.
+
+### Delete
+
+Allows users to remove employee records from the database.
+
+## Validation
+
+Implemented using ASP.NET Core Data Annotations:
+
+* Required field validation
+* String length validation
+* Salary range validation
+
+## How to Run the Project
+
+1. Clone the repository
+
+2. Open the project using Visual Studio 2022
+
+3. Update the SQL Server connection string in:
+
+```
+appsettings.json
+```
+
+4. Build the solution
+
+5. Run the application
+
+6. Navigate to:
+
+```
+https://localhost:7073/Employees
+```
+
+
 
 ## Future Enhancements
 
-- Authentication & Authorization using JWT
-- Pagination
-- Search and Filtering
-- Logging
-- Exception Handling Middleware
-- Swagger Documentation
-
----
+* User authentication and authorization
+* Search and filter employees
+* Pagination
+* Export employee details to Excel
+* Improved responsive design
 
 ## Author
 
-**Lakshmi Priya**
+Lakshmi Priya
 
-GitHub: https://github.com/lakshmiraj070-arch
+## License
+
+This project is created for learning and portfolio purposes.
