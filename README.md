@@ -1,187 +1,232 @@
-# Employee Management System MVC
+# Employee Management System – ASP.NET Core Web API
 
 ## Overview
 
-Employee Management System MVC is an ASP.NET Core MVC application developed to manage employee records efficiently. The application follows the MVC (Model-View-Controller) architecture and performs CRUD operations using Entity Framework Core with SQL Server.
+Employee Management System – ASP.NET Core Web API is a RESTful API developed using ASP.NET Core Web API, C#, Entity Framework Core, and SQL Server. The application provides CRUD (Create, Read, Update, Delete) operations for managing employee records through HTTP endpoints.
 
-This project demonstrates the implementation of MVC concepts, database connectivity, form validation, and Razor Views.
+This project demonstrates REST API development, Entity Framework Core Code First approach, database integration, model validation, and API testing.
+
+---
 
 ## Features
 
-* View all employee records
-* Add new employee details
-* Edit existing employee information
-* Delete employee records
-* Form validation using Data Annotations
-* Entity Framework Core database integration
-* SQL Server database connectivity
-* Responsive user interface using HTML and CSS
+- Create employee records
+- Retrieve all employees
+- Retrieve employee details by ID
+- Update employee information
+- Delete employee records
+- RESTful API architecture
+- Entity Framework Core Code First approach
+- EF Core Migrations
+- SQL Server database integration
+- JSON request and response
+- Model validation
+
+---
 
 ## Technologies Used
 
 ### Backend
 
-* ASP.NET Core MVC
-* C#
-* Entity Framework Core
+- ASP.NET Core Web API
+- C#
+- Entity Framework Core
 
 ### Database
 
-* Microsoft SQL Server
+- Microsoft SQL Server
 
-### Frontend
+### API
 
-* Razor Views (.cshtml)
-* HTML5
-* CSS3
-* Bootstrap
+- REST API
+- JSON
 
 ### Development Tools
 
-* Visual Studio 2022
-* SQL Server / SQL Server Management Studio
+- Visual Studio 2022
+- SQL Server Management Studio (SSMS)
 
-## Application Architecture
+---
 
-The project follows the MVC architecture:
+## Project Architecture
 
 ```
-User
- |
- v
-View (Razor Pages)
- |
- v
+Client
+   |
+HTTP Request
+   |
+ASP.NET Core Web API
+   |
 Controller
- |
- v
-Model
- |
- v
+   |
 Entity Framework Core
- |
- v
+   |
 SQL Server Database
 ```
+
+---
 
 ## Project Structure
 
 ```
-EmployeeManagementSystemMVC
+EmployeeAPI
 
 │
 ├── Controllers
-│   ├── HomeController.cs
-│   └── EmployeesController.cs
+│   └── EmployeeController.cs
 │
 ├── Models
-│   ├── Employee.cs
-│   ├── EmployeeManagementDBContext.cs
-│   └── ErrorViewModel.cs
+│   └── Employee.cs
 │
-├── Views
-│   ├── Home
-│   ├── Employees
-│   │   ├── Index.cshtml
-│   │   ├── Create.cshtml
-│   │   ├── Edit.cshtml
-│   │   ├── Details.cshtml
-│   │   └── Delete.cshtml
-│   │
-│   └── Shared
+├── Data
+│   └── EmployeeDbContext.cs
 │
-├── wwwroot
-│   └── css
+├── Migrations
 │
 ├── appsettings.json
+│
 └── Program.cs
 ```
 
+---
+
 ## Database Details
 
-Database Name:
+Database Name
 
 ```
 EmployeeManagementDB
 ```
 
-Table Name:
+Table Name
 
 ```
 Employee
 ```
 
-Employee Table Columns:
+Employee Table
 
-| Column      | Data Type |
-| ----------- | --------- |
-| Id          | int       |
-| Name        | varchar   |
-| Designation | varchar   |
-| Salary      | decimal   |
+| Column | Data Type |
+|---------|-----------|
+| Id | int |
+| Name | varchar |
+| Designation | varchar |
+| Salary | decimal |
 
-## CRUD Operations
+---
 
-### Create
+## API Endpoints
 
-Allows users to add new employee records through a form with validation.
+### Get All Employees
 
-### Read
+```
+GET /api/Employee
+```
 
-Displays all employee records from SQL Server.
+---
 
-### Update
+### Get Employee By ID
 
-Allows users to edit and update existing employee information.
+```
+GET /api/Employee/{id}
+```
 
-### Delete
+---
 
-Allows users to remove employee records from the database.
+### Create Employee
 
-## Validation
+```
+POST /api/Employee
+```
 
-Implemented using ASP.NET Core Data Annotations:
+Sample JSON
 
-* Required field validation
-* String length validation
-* Salary range validation
+```json
+{
+  "name": "Lakshmi",
+  "designation": "Software Developer",
+  "salary": 35000
+}
+```
+
+---
+
+### Update Employee
+
+```
+PUT /api/Employee/{id}
+```
+
+---
+
+### Delete Employee
+
+```
+DELETE /api/Employee/{id}
+```
+
+---
+
+## Entity Framework Core
+
+This project uses the Code First approach with Entity Framework Core.
+
+Migration Commands
+
+```bash
+Add-Migration InitialCreate
+
+Update-Database
+```
+
+---
 
 ## How to Run the Project
 
-1. Clone the repository
+1. Clone the repository.
 
-2. Open the project using Visual Studio 2022
+2. Open the solution using Visual Studio 2022.
 
-3. Update the SQL Server connection string in:
+3. Update the SQL Server connection string inside:
 
 ```
 appsettings.json
 ```
 
-4. Build the solution
+4. Run EF Core migrations.
 
-5. Run the application
+5. Build the project.
 
-6. Navigate to:
+6. Run the application.
+
+7. Open the API using:
 
 ```
-https://localhost:7073/Employees
+https://localhost:7242/api/Employee
 ```
 
 
 
 ## Future Enhancements
 
-* User authentication and authorization
-* Search and filter employees
-* Pagination
-* Export employee details to Excel
-* Improved responsive design
+- Authentication and Authorization using JWT
+- Search employees
+- Pagination
+- Sorting
+- Swagger API documentation
+- Logging
+- Unit Testing
+
+---
 
 ## Author
 
-Lakshmi Priya
+**Lakshmi Priya**
+
+GitHub: https://github.com/lakshmiraj070-arch
+
+---
 
 ## License
 
-This project is created for learning and portfolio purposes.
+This project is developed for learning and portfolio purposes.
